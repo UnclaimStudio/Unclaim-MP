@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3cd1876d29049c9acf3f2d2e925c2f06",
+    "content-hash": "cc22a3267e1cd9279b5a94e49f118da4",
     "packages": [
         {
             "name": "adhocore/json-comment",
@@ -145,16 +145,16 @@
         },
         {
             "name": "axolotl-pm/bedrock-protocol",
-            "version": "60.0.0+bedrock-1.26.44",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/axolotl-pm/BedrockProtocol.git",
-                "reference": "0a50f503f08a3f80adcf6b6dd625a83c5c23c60a"
+                "url": "https://github.com/phoenixDechu30/BedrockProtocol.git",
+                "reference": "23e0e4f09e1828715ba98284f9afb98c9b33c57f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/axolotl-pm/BedrockProtocol/zipball/0a50f503f08a3f80adcf6b6dd625a83c5c23c60a",
-                "reference": "0a50f503f08a3f80adcf6b6dd625a83c5c23c60a",
+                "url": "https://api.github.com/repos/phoenixDechu30/BedrockProtocol/zipball/23e0e4f09e1828715ba98284f9afb98c9b33c57f",
+                "reference": "23e0e4f09e1828715ba98284f9afb98c9b33c57f",
                 "shasum": ""
             },
             "require": {
@@ -173,44 +173,52 @@
                 "phpstan/phpstan-strict-rules": "^2.0.0",
                 "phpunit/phpunit": "^9.5 || ^10.0 || ^11.0"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "pocketmine\\network\\mcpe\\protocol\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "pocketmine\\network\\mcpe\\protocol\\": "tests/phpunit/"
+                }
+            },
+            "scripts": {
+                "update-create-methods": [
+                    "@php tools/generate-create-static-methods.php"
+                ]
+            },
             "license": [
                 "LGPL-3.0"
             ],
             "description": "An implementation of the Minecraft: Bedrock Edition protocol in PHP",
             "support": {
-                "issues": "https://github.com/axolotl-pm/BedrockProtocol/issues",
-                "source": "https://github.com/axolotl-pm/BedrockProtocol/tree/60.0.0+bedrock-1.26.44"
+                "source": "https://github.com/phoenixDechu30/BedrockProtocol/tree/master"
             },
-            "time": "2026-08-15T00:32:48+00:00"
+            "time": "2026-08-24T15:59:29+00:00"
         },
         {
             "name": "brick/math",
-            "version": "0.13.1",
+            "version": "0.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/brick/math.git",
-                "reference": "fc7ed316430118cc7836bf45faff18d5dfc8de04"
+                "reference": "82944324d1c1bdb2c2618e89978d4e2ad78d69ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brick/math/zipball/fc7ed316430118cc7836bf45faff18d5dfc8de04",
-                "reference": "fc7ed316430118cc7836bf45faff18d5dfc8de04",
+                "url": "https://api.github.com/repos/brick/math/zipball/82944324d1c1bdb2c2618e89978d4e2ad78d69ad",
+                "reference": "82944324d1c1bdb2c2618e89978d4e2ad78d69ad",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.1"
+                "php": "^8.2"
             },
             "require-dev": {
-                "php-coveralls/php-coveralls": "^2.2",
-                "phpunit/phpunit": "^10.1",
-                "vimeo/psalm": "6.8.8"
+                "phpstan/phpstan": "2.1.22",
+                "phpunit/phpunit": "^11.5"
             },
             "type": "library",
             "autoload": {
@@ -240,7 +248,7 @@
             ],
             "support": {
                 "issues": "https://github.com/brick/math/issues",
-                "source": "https://github.com/brick/math/tree/0.13.1"
+                "source": "https://github.com/brick/math/tree/0.18.0"
             },
             "funding": [
                 {
@@ -248,7 +256,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-29T13:50:30+00:00"
+            "time": "2026-06-14T18:21:03+00:00"
         },
         {
             "name": "netresearch/jsonmapper",
@@ -2770,7 +2778,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "axolotl-pm/bedrock-protocol": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
@@ -2806,5 +2816,5 @@
     "platform-overrides": {
         "php": "8.1.0"
     },
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }
