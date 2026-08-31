@@ -148,8 +148,15 @@ class LoginPacketHandler extends PacketHandler{
 		$clientData = $this->parseClientData($packet->clientDataJwt);
 		//TODO: HACK! Remove this check after protocol version 2168.
 		//This is a temporary measure because Mojang made breaking protocol changes in v26.44
+		$rawGameVersion = $clientData->GameVersion;
+		$versionParts = explode(".", $rawGameVersion);
+		if(count($versionParts) > 3){
+			//Preview/beta clients report a 4th "build" segment (e.g. "1.26.50.22"), which
+			//VersionString doesn't accept. Only major.minor.patch matter for the check below.
+			$rawGameVersion = implode(".", array_slice($versionParts, 0, 3));
+		}
 		try{
-			$version = new VersionString($clientData->GameVersion);
+			$version = new VersionString($rawGameVersion);
 		}catch(\InvalidArgumentException $e){
 			throw PacketHandlingException::wrap($e);
 		}
